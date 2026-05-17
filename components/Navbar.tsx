@@ -1,11 +1,32 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const sidebarRef = useRef<HTMLUListElement>(null);
+  const menuIconRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isOpen &&
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node) &&
+        menuIconRef.current &&
+        !menuIconRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
@@ -19,13 +40,13 @@ const Navbar = () => {
           </Link>
         </div>
         
-        <div className={`menu-icon ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
+        <div className={`menu-icon ${isOpen ? 'open' : ''}`} onClick={toggleMenu} ref={menuIconRef}>
           <span></span>
           <span></span>
           <span></span>
         </div>
 
-        <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
+        <ul className={`nav-links ${isOpen ? 'active' : ''}`} ref={sidebarRef}>
           <li><Link href="#home" onClick={closeMenu}>Home</Link></li>
           <li><Link href="#features" onClick={closeMenu}>Features</Link></li>
           <li><Link href="#services" onClick={closeMenu}>Services</Link></li>
