@@ -89,7 +89,7 @@ export default function AppDownloadDetail() {
               <div className="phone-screen-premium">
                 <div className="app-mock-home">
                   <div className="app-mock-header">
-                    <span className="greeting">Hi, Jesse!</span>
+                    <span className="greeting">Hi, Bishop!</span>
                     <span className="bell">🔔</span>
                   </div>
                   <div className="app-mock-card glass">
