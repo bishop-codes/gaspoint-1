@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import './Hero.css';
 
 const heroImages = [
@@ -39,8 +40,8 @@ const Hero = () => {
           GasPoint provides fast, reliable, and secure cooking gas delivery right to your doorstep. Experience real-time tracking and verified vendors for peace of mind.
         </p>
         <div className="hero-cta">
-          <a href="#order" className="btn-primary">Order Gas Now</a>
-          <a href="#download" className="btn-secondary glass">Download App</a>
+          <Link href="/order" className="btn-primary">Order Gas Now</Link>
+          <Link href="/download" className="btn-secondary glass">Download App</Link>
         </div>
       </div>
     </section>
