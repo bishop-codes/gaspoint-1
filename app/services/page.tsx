@@ -1,9 +1,9 @@
-import Services from '@/components/Services';
+import ServicesDetail from '@/components/ServicesDetail';
 
 export default function ServicesPage() {
   return (
-    <main style={{ paddingTop: '100px', minHeight: '100vh' }}>
-      <Services />
+    <main style={{ paddingTop: '120px', minHeight: '100vh' }}>
+      <ServicesDetail />
     </main>
   );
 }

@@ -47,11 +47,11 @@ const Navbar = () => {
         </div>
 
         <ul className={`nav-links ${isOpen ? 'active' : ''}`} ref={sidebarRef}>
-          <li><Link href="#home" onClick={closeMenu}>Home</Link></li>
-          <li><Link href="#features" onClick={closeMenu}>Features</Link></li>
-          <li><Link href="#services" onClick={closeMenu}>Services</Link></li>
-          <li><Link href="#download" onClick={closeMenu}>App</Link></li>
-          <li><Link href="#order" className="btn-primary btn-small" onClick={closeMenu}>Order Gas</Link></li>
+          <li><Link href="/" onClick={closeMenu}>Home</Link></li>
+          <li><Link href="/features" onClick={closeMenu}>Features</Link></li>
+          <li><Link href="/services" onClick={closeMenu}>Services</Link></li>
+          <li><Link href="/download" onClick={closeMenu}>App</Link></li>
+          <li><Link href="/order" className="btn-primary btn-small" onClick={closeMenu}>Order Gas</Link></li>
         </ul>
       </div>
     </nav>
